@@ -161,20 +161,37 @@ Edit `wp-content/themes/opensourcebox/style.css` to customize:
 
 ## Importing Content from Hugo
 
-Your Hugo blog content is in `osbBlog/content/posts/`. To migrate:
+Your Hugo blog content is in `osbBlog/content/posts/`.
+
+### Automated Import (Recommended):
+
+I've created a Python script to automatically convert and import your Hugo content:
+
+```bash
+# Run the conversion script
+python3 hugo-to-wordpress.py
+```
+
+This generates `wordpress-import.xml` that you can import into WordPress.
+
+**Detailed instructions**: See [IMPORT-GUIDE.md](IMPORT-GUIDE.md) for complete step-by-step instructions.
+
+### Quick Import Steps:
+
+1. Run `python3 hugo-to-wordpress.py` to generate the import file
+2. In WordPress admin, go to **Tools > Import**
+3. Install and activate "WordPress Importer" plugin
+4. Upload `wordpress-import.xml`
+5. Map authors and click Submit
 
 ### Manual Migration:
 
-1. Copy content from Hugo markdown files
+If you prefer manual migration:
+
+1. Copy content from Hugo markdown files (`osbBlog/content/posts/*.md`)
 2. Create new posts in WordPress admin (Posts > Add New)
 3. Paste and format content
 4. Update metadata (date, categories, tags)
-
-### Using Import Tools:
-
-1. Install the "WordPress Importer" plugin
-2. Or use the "Hugo to WordPress" migration script (if available)
-3. Bulk import your posts
 
 ## Development
 
